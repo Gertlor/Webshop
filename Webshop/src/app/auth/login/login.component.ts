@@ -6,6 +6,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {TokenService} from "../token/token.service";
 import {Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(body).subscribe(data => {
         let token = data['token'];
         this.tokenService.setToken(token);
-        this.router.navigate(['client']);
+        this.router.navigate(['account']);
         this.authService.setIsAdmin();
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {

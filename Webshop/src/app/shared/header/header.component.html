@@ -1,13 +1,24 @@
-<header class="main-header">
-  <nav class="navbar navbar-static-top">
-    <div class="navbar-custom-menu">
+<div id="header">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/">Alberto Umbo</a>
+      </div>
       <ul class="nav navbar-nav">
-        <li>
-          <a href="" (click)="logout()">Logout  <i class="fa fa-sign-out"></i></a>
-        </li>
+        <li><a routerLink="products/fruit">Fruit</a></li>
+        <li><a routerLink="products/vegetables">Groente</a></li>
+        <li><a routerLink="products/meat">Vlees</a></li>
+        <li><a routerLink="products/sale">Aanbiedingen</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <li ><a routerLink="account/register"><span class="glyphicon glyphicon-user"></span> Registreren</a></li>
+        <li ><a data-toggle="collapse" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
+        <li><a data-toggle="collapse" data-target="#login"><span class="glyphicon glyphicon-user"></span> Mijn account</a></li>
       </ul>
     </div>
-
   </nav>
-</header>
+</div>
+
 

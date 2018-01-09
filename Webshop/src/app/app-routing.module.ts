@@ -8,12 +8,13 @@ import {ProductComponent} from "./product/product.component";
 import {NgModule} from "@angular/core";
 import {ProductcreateComponent} from "./product/productcreate/productcreate.component";
 import {AccountCreateComponent} from "./account/account-create/account-create.component";
+import {AppComponent} from "./app.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'client', canActivate: [AuthGuardService], pathMatch: "full"},
+  { path: '', component:AppComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'account', component: AccountComponent , canActivate: [AuthGuardService]},
-  { path: 'product', component: ProductComponent, canActivate: [AuthGuardService]},
+  { path: 'account', component: AccountComponent},
+  { path: 'product', component: ProductComponent},
   { path: 'account/new', component: AccountCreateComponent, canActivate: [AuthGuardService]},
   { path: 'product/new', component: ProductcreateComponent, canActivate: [AuthGuardService]},
 ];
