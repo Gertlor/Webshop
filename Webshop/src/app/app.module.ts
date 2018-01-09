@@ -31,6 +31,7 @@ import {ProductService} from "./product/product.service";
 import {TokenInterceptor} from "./auth/token/token.interceptor";
 import {MessageService} from "./shared/message/message.service";
 import {MessageComponent} from "./shared/message/message.component";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   exports: [],
@@ -44,6 +45,7 @@ import {MessageComponent} from "./shared/message/message.component";
     ProductcreateComponent,
     ProductoverviewComponent,
     MessageComponent,
+    HomeComponent,
   ],
   imports: [
     MatInputModule,
