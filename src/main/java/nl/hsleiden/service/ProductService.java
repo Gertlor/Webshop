@@ -18,6 +18,10 @@ public class ProductService {
 		return this.productDAO.getAllProducts();
 	}
 
+	public Product getProductsInformation(int prodid) {
+		return productDAO.getProductsInformation(prodid);
+	}
+
 
 
 }

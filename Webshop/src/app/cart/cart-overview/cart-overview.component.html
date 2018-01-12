@@ -1,0 +1,37 @@
+<div class="col-md-3"></div>
+<div class="col-md-6">
+  <mat-card>
+    <div id="centered" class="row">
+      <h1 id="title">Winkelmandje</h1>
+      <p id="emptymessage" *ngIf="isCartEmpty()">Winkelmandje leeg.</p>
+     <div *ngIf="!isCartEmpty()">
+      <table id="table" class="table">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th class="rightalign">Prijs</th>
+          <th class="centeralign">Aantal</th>
+          <th class="rightalign">Totaalprijs</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let cartRowProduct of cart.productsInCart">
+          <tr>
+            <td><img id="product-img" src={{cartRowProduct.product.imageURL}}></td>
+            <td>{{cartRowProduct.product.name}}</td>
+            <td class="rightalign">{{cartRowProduct.product.price | currency:'EUR':true:'1.2-2'}}</td>
+            <td class="centeralign"> {{cartRowProduct.amount}}</td>
+            <td class="rightalign"> {{cartRowProduct.product.price * cartRowProduct.amount | currency:'EUR':true:'1.2-2'}}</td>
+            <td> <button (click)="removeOfCart(cartRowProduct.product.id)"><span class="glyphicon glyphicon-remove-sign"></span></button></td>
+          </tr>
+        </tbody>
+      </table>
+         <p id="totaal">Totaal: {{cart.getTotalPrice() | currency:'EUR':true:'1.2-2'}}</p>
+        <button id = "cart" mat-raised-button color="warn" routerLink="payment"><span>Bestelling afronden</span></button>
+      <br>
+     </div>
+    </div>
+  </mat-card>
+</div>
+<div class="col-md-6"></div>

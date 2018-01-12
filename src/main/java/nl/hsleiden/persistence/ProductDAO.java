@@ -18,6 +18,7 @@ public class ProductDAO {
 	Connection dbConnection;
 
 	private PreparedStatement getAllProductsStatement;
+	private PreparedStatement getProductsInformationStatement;
 
 	@Inject
 	public ProductDAO(DatabaseService databaseService) {
@@ -29,6 +30,7 @@ public class ProductDAO {
 	private void prepareStatements(){
 		try {
 			getAllProductsStatement = dbConnection.prepareStatement("SELECT * FROM product");
+			getProductsInformationStatement = dbConnection.prepareStatement("SELECT * FROM product WHERE prod_id = ?");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -64,6 +66,21 @@ public class ProductDAO {
 					rs.getString("prod_img_path"),
 					rs.getDouble("prod_price")
 					);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public Product getProductsInformation(int prodid){
+		try {
+			getProductsInformationStatement.setInt(1, prodid);
+			ResultSet resultSet = getProductsInformationStatement.executeQuery();
+			if (resultSet.next()){
+				Product product = makeProduct(resultSet);
+				return product;
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
