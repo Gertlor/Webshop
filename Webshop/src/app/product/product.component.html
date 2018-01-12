@@ -22,8 +22,8 @@
               <mat-card-content>
                 <p> Type: {{product.description}}</p>
                 <p> Prijs: {{product.price | currency: 'EUR':true:'1.2-2'}}</p>
-                <p> Hoeveelheid: <br>
-                  <input id="inputamount" type="number" [(ngModel)] = "amount"></p>
+                <button (click)="substractAmount()"><span class="glyphicon glyphicon-minus"></span></button> <strong> {{amount}} </strong><button (click)="addAmount()"><span class="glyphicon glyphicon-plus"></span></button>
+                <button mat-raised-button color="warn" (click)="addProductToCart(product)"><span>Toevoegen aan winkelmandje</span></button>
               </mat-card-content>
             </div>
           </div>

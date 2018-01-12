@@ -12,9 +12,17 @@ export class ProductService {
   constructor(private http: HttpClient, private router:Router, private messageService:MessageService) { }
 
 
-  getProduct():Observable<Product[]> {
+  public getProduct():Observable<Product[]> {
 
     return this.http.get<Product[]>('api/product/all/')
+  }
+
+  public getProductInformation(prod_id):Observable<Product[]>  {
+    let idString = "";
+    for(let i = 0; i < prod_id.length; i++){
+      idString += prod_id[i] + "-";
+    }
+    return this.http.get<Product[]>('api/product/'  + idString);
   }
 
 }
