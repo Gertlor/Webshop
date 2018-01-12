@@ -1,0 +1,16 @@
+img{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+#mainTitle{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Calibri;
+}
+
+#productTitle{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Calibri;
+}
