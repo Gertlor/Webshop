@@ -36,4 +36,11 @@ public class ProductResource {
 		this.productService = productService;
 		this.configuration = configuration;
 	}
+
+	@GET
+	@Path("/all")
+	@JsonView(View.Public.class)
+	public ArrayList<Product> getProduct() {
+		return productService.getAllProducts();
+	}
 }
