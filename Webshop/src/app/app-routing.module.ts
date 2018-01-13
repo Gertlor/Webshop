@@ -7,17 +7,17 @@ import {AccountComponent} from "./account/account.component";
 import {ProductComponent} from "./product/product.component";
 import {NgModule} from "@angular/core";
 import {ProductcreateComponent} from "./product/productcreate/productcreate.component";
-import {AccountCreateComponent} from "./account/account-create/account-create.component";
-import {AppComponent} from "./app.component";
 import {HomeComponent} from "./home/home.component";
 import {CartOverviewComponent} from "./cart/cart-overview/cart-overview.component";
+import {AccountRegisterComponent} from "./account/account-register/account-register.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full"},
   { path: 'login', component: LoginComponent},
   { path: 'account', component: AccountComponent},
   { path: 'products', component: ProductComponent},
-  { path: 'account/new', component: AccountCreateComponent, canActivate: [AuthGuardService]},
+  { path: 'account/register', component: AccountRegisterComponent},
   { path: 'product/new', component: ProductcreateComponent, canActivate: [AuthGuardService]},
   {path: 'home', component: HomeComponent},
   {path: 'cart', component: CartOverviewComponent}

@@ -15,11 +15,6 @@ import javax.inject.Singleton;
 
 import nl.hsleiden.model.Account;
 import org.jose4j.jwt.consumer.JwtContext;
-
-/**
- *
- * @author Peter van Vliet
- */
 @Singleton
 public class AuthenticationService implements Authenticator<JwtContext, Account>, Authorizer<Account>
 {
@@ -48,9 +43,9 @@ public class AuthenticationService implements Authenticator<JwtContext, Account>
     @Override
     public boolean authorize(Account user, String roleName)
     {
-        if (user.getAdmin()){
+        if (user.isIsadmin()){
             return true;
-        } else if (!user.getAdmin() && roleName.equals("USER")) {
+        } else if (!user.isIsadmin() && roleName.equals("USER")) {
             return true;
         }
         return false;

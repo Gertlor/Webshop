@@ -40,8 +40,6 @@ public class AccountService {
 		return succesfull;
 	}
 
-	public Account getAccountByUsername(String username){
-		return accountDAO.getAccountByUsername(username);
-	}
+
 
 }
