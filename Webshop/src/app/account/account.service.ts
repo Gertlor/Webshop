@@ -10,7 +10,7 @@ export class AccountService {
   constructor(private http: HttpClient, private router:Router) { }
 
   createAccount(account: Account): Observable<any>{
-    let accountGegevens = {
+    let accountInformation = {
       firstname: account.firstname,
       prefix: account.prefix,
       lastname: account.lastname,
@@ -22,7 +22,7 @@ export class AccountService {
       town: account.town,
     }
 
-    return this.http.post('api/account/register', accountGegevens);
+    return this.http.post('api/account/register', accountInformation);
   }
 
 
