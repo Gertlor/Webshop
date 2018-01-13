@@ -40,6 +40,11 @@ public class AccountService {
 		return succesfull;
 	}
 
+	public Account getAccountByEmail(String username){
+		return accountDAO.getAccountByEmail(username);
+	}
+
+
 
 
 }

@@ -10,9 +10,10 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><a routerLink="cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-        <li ><a routerLink="account/register"><span class="glyphicon glyphicon-user"></span> Registreren</a></li>
-        <li ><a data-toggle="collapse" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
-        <li><a data-toggle="collapse" data-target="#login"><span class="glyphicon glyphicon-user"></span> Mijn account</a></li>
+        <li *ngIf="isAuthenticated() == false"><a routerLink="account/register"><span class="glyphicon glyphicon-user"></span> Registreren</a></li>
+        <li *ngIf="isAuthenticated() == true"><a routerLink="account"><span class="glyphicon glyphicon-user"></span> Mijn account</a></li>
+        <li *ngIf="isAuthenticated() == false" ><a routerLink="login" data-toggle="collapse" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
+        <li *ngIf="isAuthenticated() == true" ><a (click)="logout()" data-toggle="collapse" data-target="#login"><span class="glyphicon glyphicon-log-out"></span> Uitloggen</a></li>
       </ul>
     </div>
   </nav>
