@@ -1,6 +1,5 @@
 
 import { ProductcreateComponent } from './product/productcreate/productcreate.component';
-import { ProductoverviewComponent } from './product/productoverview/productoverview.component';
 
 import {
   MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatCardModule,
@@ -15,7 +14,6 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {HeaderComponent} from "./shared/header/header.component";
 import {ProductComponent} from "./product/product.component";
-import {AccountComponent} from "./account/account.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -42,11 +40,9 @@ import {AccountRegisterComponent} from "./account/account-register/account-regis
     AppComponent,
     HeaderComponent,
     ProductComponent,
-    AccountComponent,
     LoginComponent,
     AccountRegisterComponent,
     ProductcreateComponent,
-    ProductoverviewComponent,
     MessageComponent,
     HomeComponent,
     CartComponent,

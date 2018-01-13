@@ -25,4 +25,13 @@ export class ProductService {
     return this.http.get<Product[]>('api/product/'  + idString);
   }
 
+  public createProduct(product:Product):Observable<any> {
+    let productInformation = {
+      name: product.name,
+      description: product.description,
+      path: product.path,
+      price: product.price
+    }
+    return this.http.post('api/product/create', productInformation);
+  }
 }

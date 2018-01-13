@@ -6,6 +6,7 @@
       </div>
       <ul class="nav navbar-nav">
         <li><a routerLink="products">Producten</a></li>
+        <li><a *ngIf="isCurrentAdmin == true" routerLink="products/new">Nieuw Product</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

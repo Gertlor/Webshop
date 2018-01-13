@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../product";
+import {Router} from "@angular/router";
+import {ProductService} from "../product.service";
+import {AuthService} from "../../auth/auth.service";
+import {Account} from "../../account/account";
 
 @Component({
   selector: 'app-productcreate',
@@ -7,15 +11,34 @@ import {Product} from "../product";
   styleUrls: ['./productcreate.component.css']
 })
 export class ProductcreateComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+  ngOnInit(){
+    this.checkCurrentAccount();
   }
 
   product:Product = new Product();
-  editing:boolean = false;
+  currentAccount:Account = new Account();
+  isCurrentAdmin:boolean = false;
 
-  constructor() {
+
+  constructor(private router:Router, private productService:ProductService, private authService: AuthService) {
   }
 
+  public createProduct():void{
+    this.productService.createProduct(this.product).subscribe(accountGegevens => {
+      this.router.navigate(['products'])
+    }, (err: any) => {
+
+    })
+  }
+
+  public checkCurrentAccount(){
+    this.authService.getAuthenticatedUser()
+      .subscribe(
+        resultAccount => {
+          this.currentAccount = resultAccount;
+          this.isCurrentAdmin = resultAccount.isadmin;
+        }
+      );
+  }
 
 }

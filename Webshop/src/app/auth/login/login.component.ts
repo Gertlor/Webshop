@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
         let token = data['token'];
         this.tokenService.setToken(token);
         this.router.navigate(['home']);
+        window.location.reload();
         this.authService.setIsAdmin();
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {

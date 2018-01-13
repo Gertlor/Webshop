@@ -19,6 +19,7 @@ public class ProductDAO {
 
 	private PreparedStatement getAllProductsStatement;
 	private PreparedStatement getProductsInformationStatement;
+	private PreparedStatement createStatement;
 
 	@Inject
 	public ProductDAO(DatabaseService databaseService) {
@@ -31,6 +32,7 @@ public class ProductDAO {
 		try {
 			getAllProductsStatement = dbConnection.prepareStatement("SELECT * FROM product");
 			getProductsInformationStatement = dbConnection.prepareStatement("SELECT * FROM product WHERE prod_id = ?");
+			createStatement = dbConnection.prepareStatement("INSERT INTO product VALUES(?,?,?,?)");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -86,6 +88,21 @@ public class ProductDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public HttpResponse createProduct(Product product){
+		try {
+			createStatement.setString(1,product.getName());
+			createStatement.setString(2,product.getDescription());
+			createStatement.setString(3,product.getPath());
+			createStatement.setDouble(4, product.getPrice());
+
+			createStatement.executeUpdate();
+			return new HttpResponse(Response.Status.OK, "Product succesvol toegevoegd");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return new HttpResponse(Response.Status.INTERNAL_SERVER_ERROR, "Er is iets mis gegaan bij het aanmaken van een product");
+		}
 	}
 
 }

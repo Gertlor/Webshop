@@ -56,4 +56,15 @@ public class ProductResource {
 		}
 		return products;
 	}
+
+	@POST
+	@Path("create")
+	public Response createProduct(Product product) {
+		try {
+			return productService.createProduct(product).send();
+		} catch(javax.validation.ValidationException e){
+			ValidationExceptionMapper validationExceptionMapper = new ValidationExceptionMapper();
+			return validationExceptionMapper.toResponse(e);
+		}
+	}
 }
