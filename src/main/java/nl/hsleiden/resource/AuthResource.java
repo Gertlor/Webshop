@@ -34,6 +34,24 @@ public class AuthResource
         this.configuration = configuration;
     }
 
+    @POST
+    @Path("/login")
+    public Response login(Credentials credentials) {
+
+        if (accountService.attemptToLogin(credentials.getUsername(), credentials.getPassword())) {
+            Account account = accountService.getAccountByEmail(credentials.getUsername());
+            return Response.status(Response.Status.OK)
+                    .type(MediaType.APPLICATION_JSON)
+                    .entity(generateValidToken(account.getId()))
+                    .build();
+        }
+        //Else return forbidden
+        return Response.status(Response.Status.FORBIDDEN)
+                .type(MediaType.APPLICATION_JSON)
+                .entity(singletonMap("message", "invalid credentials"))
+                .build();
+    }
+
 
     private Map<String, String> generateValidToken(int userId) {
         final JwtClaims claims = new JwtClaims();

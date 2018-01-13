@@ -3,7 +3,6 @@ package nl.hsleiden.persistence;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;
-import java.util.ArrayList;
 import javax.inject.Singleton;
 import javax.ws.rs.core.Response;
 
@@ -19,6 +18,7 @@ public class AccountDAO
 	private PreparedStatement createStatement;
 	private PreparedStatement authenticateStatement;
 	private PreparedStatement getAccountByIdStatement;
+	private PreparedStatement getAccountWOPassword;
 
 	public DatabaseService databaseService;
 	@Inject
@@ -31,8 +31,9 @@ public class AccountDAO
 	private void prepareStatements(){
 		try{
 			createStatement = databaseService.getConnection().prepareStatement("INSERT INTO account(acc_isadmin,acc_firstname, acc_prefix, acc_lastname, acc_psw, acc_email, acc_house_nr, acc_street, acc_zipcode, acc_town) VALUES (false, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			authenticateStatement = databaseService.getConnection().prepareStatement("SELECT geb_id, geb_voornaam, geb_tussenvoegsel, geb_achternaam, geb_gebruikersnaam, geb_wachtwoord, geb_isadmin, geb_deaclient, geb_deaprod FROM gebruiker WHERE geb_gebruikersnaam = ? AND geb_wachtwoord = ?");
+			authenticateStatement = databaseService.getConnection().prepareStatement("SELECT acc_id, acc_firstname, acc_prefix, acc_lastname, acc_email, acc_psw, acc_isadmin FROM account WHERE acc_email = ? AND acc_psw = ?");
 			getAccountByIdStatement = databaseService.getConnection().prepareStatement("SELECT * FROM account WHERE acc_id = ?");
+			getAccountWOPassword = databaseService.getConnection().prepareStatement("SELECT * FROM account WHERE acc_email = ?");
 		}
 		catch(SQLException e){
 			System.out.println("Error in the Prepare Statements (in AccountDao" + e.getStackTrace());
@@ -110,5 +111,38 @@ public class AccountDAO
 		}
 		return null;
 	}
+
+	public Account getAccountByEmail(String email){
+		try {
+
+			getAccountWOPassword.setString(1, email);
+
+			ResultSet resultSet = getAccountWOPassword.executeQuery();
+
+			if (!resultSet.next()) {
+				return null;
+			}
+
+
+			Account account = new Account();
+			account.setFirstname(resultSet.getString("acc_firstname"));
+			account.setPrefix(resultSet.getString("acc_prefix"));
+			account.setLastname(resultSet.getString("acc_lastname"));
+			account.setEmail(resultSet.getString("acc_email"));
+			account.setStreet(resultSet.getString("acc_street"));
+			account.setZipcode(resultSet.getString("acc_zipcode"));
+			account.setHouse_nr(resultSet.getInt("acc_house_nr"));
+			account.setTown(resultSet.getString("acc_town"));
+			account.setId(resultSet.getInt("acc_id"));
+			account.setIsadmin(resultSet.getBoolean("acc_isadmin"));
+			return account;
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 }

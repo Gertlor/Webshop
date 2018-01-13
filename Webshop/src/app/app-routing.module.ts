@@ -15,7 +15,7 @@ import {AccountRegisterComponent} from "./account/account-register/account-regis
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full"},
   { path: 'login', component: LoginComponent},
-  { path: 'account', component: AccountComponent},
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuardService]},
   { path: 'products', component: ProductComponent},
   { path: 'account/register', component: AccountRegisterComponent},
   { path: 'product/new', component: ProductcreateComponent, canActivate: [AuthGuardService]},
