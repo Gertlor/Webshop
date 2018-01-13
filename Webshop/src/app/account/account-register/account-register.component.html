@@ -1,0 +1,65 @@
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+          <div>
+            <h1>Registreren</h1>
+          </div>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <form name="registerForm" #registerForm="ngForm">
+            <mat-form-field class="account-input-field">
+             <input matInput placeholder="Voornaam"  name="firstname" required [(ngModel)] = "account.firstname" #firstname="ngModel">
+            </mat-form-field>
+
+            <mat-form-field class="account-input-field">
+              <input matInput placeholder="Tussenvoegsel" name="prefix" [(ngModel)] = "account.prefix" #prefix="ngModel" >
+            </mat-form-field>
+
+            <mat-form-field class="account-input-field">
+              <input matInput placeholder="Achternaam"  name="lastname" required [(ngModel)] = "account.lastname" #lastname="ngModel">
+            </mat-form-field>
+
+            <mat-form-field class="account-input-field">
+              <input matInput placeholder="E-mail" name="email" required [(ngModel)] = "account.email" #email="ngModel" >
+            </mat-form-field>
+
+            <mat-form-field class="account-input-field">
+              <input matInput placeholder="Straat" name="street" required [(ngModel)] = "account.street" #street="ngModel">
+            </mat-form-field>
+
+            <mat-form-field class="account-input-field">
+            <input matInput placeholder="Huisnummer" name="house_nr" required [(ngModel)] = "account.house_nr" #house_nr="ngModel">
+            </mat-form-field>
+
+            <mat-form-field class="account-input-field">
+              <input matInput placeholder="Postcode" name="zipcode" required [(ngModel)] = "account.zipcode" #zipcode="ngModel">
+            </mat-form-field>
+
+            <mat-form-field class="account-input-field">
+              <input matInput placeholder="Plaats" name="town" required  [(ngModel)] = "account.town" #town="ngModel">
+            </mat-form-field>
+
+        <div>
+            <mat-form-field class="account-input-field">
+              <input matInput placeholder="Wachtwoord" type="password" required name="password" [(ngModel)] = "account.password"  #password="ngModel">
+            </mat-form-field>
+
+        </div>
+
+          <div>
+        <button mat-raised-button type="submit" (click)="createAccount()"><span>Account aanmaken</span></button>
+        </div>
+          </form>
+          <button mat-raised-button class="mat-warn" routerLink="../../home"><span>Annuleren</span></button>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="col-md-3"></div>

@@ -20,7 +20,7 @@ export class AuthService {
   public setIsAdmin(): void{
      this.getAuthenticatedUser().subscribe(
       resultAccount => {
-        this.isAdmin = resultAccount.isAdmin;
+        this.isAdmin = resultAccount.isadmin;
       }
     );
   }

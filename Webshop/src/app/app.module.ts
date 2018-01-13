@@ -17,7 +17,6 @@ import {HeaderComponent} from "./shared/header/header.component";
 import {ProductComponent} from "./product/product.component";
 import {AccountComponent} from "./account/account.component";
 import {LoginComponent} from "./auth/login/login.component";
-import {AccountCreateComponent} from "./account/account-create/account-create.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -35,6 +34,7 @@ import {HomeComponent} from "./home/home.component";
 import {CartComponent} from "./cart/cart.component";
 import {CartOverviewComponent} from "./cart/cart-overview/cart-overview.component";
 import {CartService} from "./cart/cart.service";
+import {AccountRegisterComponent} from "./account/account-register/account-register.component";
 
 @NgModule({
   exports: [],
@@ -44,7 +44,7 @@ import {CartService} from "./cart/cart.service";
     ProductComponent,
     AccountComponent,
     LoginComponent,
-    AccountCreateComponent,
+    AccountRegisterComponent,
     ProductcreateComponent,
     ProductoverviewComponent,
     MessageComponent,

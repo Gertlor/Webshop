@@ -13,67 +13,67 @@ import java.security.Principal;
 public class Account implements Principal{
 
 	@JsonProperty
-	int id;
+	private int id;
 
 	@JsonProperty
-	@NotNull(message = "  is verplicht")
-	@Length(min = 1,max = 30,message = "  mag niet meer dan 30 characters zijn")
-	String firstname;
+	private boolean isadmin;
 
 	@JsonProperty
-	@NotNull(message = "  is verplicht")
-	@Length(min = 1,max = 30,message = "  mag niet meer dan 30 characters zijn")
-	String lastname;
+	private String firstname;
 
 	@JsonProperty
-	@Length(max = 20,message = "  mag niet meer dan 20 characters zijn")
-	String prefix;
+	private String prefix;
 
 	@JsonProperty
-	@NotNull(message = "  is verplicht")
-	@Length(min = 3,max = 50,message = "  mag niet minder dan 3 of meer dan 255 characters zijn")
-	String username;
+	private String lastname;
 
 	@JsonProperty
-	@NotNull(message = "  is verplicht")
-	@Length(min = 5, max = 255, message = "  moet minimaal 5 en maximaal 255 characters lang zijn")
-	String password;
+	private String email;
 
 	@JsonProperty
-	Boolean isActive;
+	private String street;
 
 	@JsonProperty
-	Boolean isAdmin;
-
+	private int house_nr;
 
 	@JsonProperty
-	Boolean inactiveProducts;
+	private String zipcode;
+
 	@JsonProperty
-	Boolean inactiveClients;
+	private String town;
+
+	@JsonProperty
+	private String password;
 
 	public Account(){
 
 	}
 
-	public Account(String firstname, String lasstname, String prefix, String username, String password, Boolean isAdmin, Boolean isActive, Boolean inactiveClients, Boolean inactiveProducts){
+	public Account(String firstname, String lastname, String prefix, String email, String password, Boolean isadmin, String street, int house_nr, String zipcode, String town){
 		this.firstname = firstname;
-		this.lastname = lasstname;
+		this.lastname = lastname;
 		this.prefix = prefix;
-		this.username = username;
+		this.email = email;
 		this.password = password;
-		this.isAdmin = isAdmin;
-		this.isActive = isActive;
-		this.inactiveClients = inactiveClients;
-		this.inactiveProducts = inactiveProducts;
+		this.isadmin = isadmin;
+		this.street = street;
+		this.house_nr = house_nr;
+		this.zipcode = zipcode;
+		this.town = town;
+
 	}
-	public Account(int id, String firstname, String lasstname, String prefix, String username, String password, Boolean isAdmin){
+	public Account(int id, String firstname, String lastname, String prefix, String email, String password, Boolean isadmin, String street, int house_nr, String zipcode, String town){
 		this.id = id;
 		this.firstname = firstname;
-		this.lastname = lasstname;
+		this.lastname = lastname;
 		this.prefix = prefix;
-		this.username = username;
+		this.email = email;
 		this.password = password;
-		this.isAdmin = isAdmin;
+		this.isadmin = isadmin;
+		this.house_nr = house_nr;
+		this.zipcode = zipcode;
+		this.town = town;
+		this.street = street;
 	}
 
 	public int getId() {
@@ -84,20 +84,20 @@ public class Account implements Principal{
 		this.id = id;
 	}
 
+	public boolean isIsadmin() {
+		return isadmin;
+	}
+
+	public void setIsadmin(boolean isadmin) {
+		this.isadmin = isadmin;
+	}
+
 	public String getFirstname() {
 		return firstname;
 	}
 
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
 	}
 
 	public String getPrefix() {
@@ -108,12 +108,52 @@ public class Account implements Principal{
 		this.prefix = prefix;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public int getHouse_nr() {
+		return house_nr;
+	}
+
+	public void setHouse_nr(int house_nr) {
+		this.house_nr = house_nr;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getTown() {
+		return town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
 	}
 
 	public String getPassword() {
@@ -124,45 +164,13 @@ public class Account implements Principal{
 		this.password = password;
 	}
 
-	public Boolean getActive() {
-		return isActive;
-	}
-
-	public void setActive(Boolean active) {
-		isActive = active;
-	}
-
-	public Boolean getAdmin() {
-		return isAdmin;
-	}
-
-	public void setAdmin(Boolean admin) {
-		isAdmin = admin;
-	}
-
-	public Boolean getInactiveProducts() {
-		return inactiveProducts;
-	}
-
-	public void setInactiveProducts(Boolean inactiveProducts) {
-		this.inactiveProducts = inactiveProducts;
-	}
-
-	public Boolean getInactiveClients() {
-		return inactiveClients;
-	}
-
-	public void setInactiveClients(Boolean inactiveClients) {
-		this.inactiveClients = inactiveClients;
-	}
-
 	@Override
 	public String getName() {
-		return username;
+		return email;
 	}
 
 	public boolean equals(Account account) {
-		return username.equals(account.getUsername());
+		return email.equals(account.getEmail());
 	}
 
 
