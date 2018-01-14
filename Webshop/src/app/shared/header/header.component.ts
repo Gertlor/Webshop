@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   currentAccount:Account = new Account();
   isCurrentAdmin:boolean = false;
 
-  constructor(private router:Router, private authService:AuthService,private cartService:CartService) { }
+  constructor(private router:Router, private authService:AuthService,public cartService:CartService) { }
 
   public logout() {
     this.authService.logout();
