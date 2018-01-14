@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(body).subscribe(data => {
         let token = data['token'];
         this.tokenService.setToken(token);
-        this.router.navigate(['home']);
         window.location.reload();
+        this.router.navigate(['home']);
         this.authService.setIsAdmin();
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {

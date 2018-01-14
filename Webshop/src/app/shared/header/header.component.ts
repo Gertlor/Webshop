@@ -19,8 +19,8 @@ export class HeaderComponent implements OnInit {
 
   public logout() {
     this.authService.logout();
-    this.router.navigate(['home']);
     window.location.reload();
+    this.router.navigate(['home']);
   }
 
   public isAuthenticated() {

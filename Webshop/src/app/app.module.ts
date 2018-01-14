@@ -29,10 +29,10 @@ import {TokenInterceptor} from "./auth/token/token.interceptor";
 import {MessageService} from "./shared/message/message.service";
 import {MessageComponent} from "./shared/message/message.component";
 import {HomeComponent} from "./home/home.component";
-import {CartComponent} from "./cart/cart.component";
 import {CartOverviewComponent} from "./cart/cart-overview/cart-overview.component";
 import {CartService} from "./cart/cart.service";
 import {AccountRegisterComponent} from "./account/account-register/account-register.component";
+import { AccountOverviewComponent } from './account/account-overview/account-overview.component';
 
 @NgModule({
   exports: [],
@@ -45,8 +45,8 @@ import {AccountRegisterComponent} from "./account/account-register/account-regis
     ProductcreateComponent,
     MessageComponent,
     HomeComponent,
-    CartComponent,
-    CartOverviewComponent
+    CartOverviewComponent,
+    AccountOverviewComponent,
   ],
   imports: [
     MatInputModule,
