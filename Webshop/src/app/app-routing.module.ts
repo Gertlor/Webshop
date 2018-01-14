@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'products/new', component: ProductcreateComponent, canActivate: [AuthGuardService]},
   {path: 'home', component: HomeComponent},
   {path: 'cart', component: CartOverviewComponent},
-  {path: 'account', component: AccountOverviewComponent}
+  {path: 'account', component: AccountOverviewComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({
