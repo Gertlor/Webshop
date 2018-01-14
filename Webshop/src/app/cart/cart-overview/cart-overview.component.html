@@ -28,7 +28,7 @@
         </tbody>
       </table>
          <p id="totaal">Totaal: {{cart.getTotalPrice() | currency:'EUR':true:'1.2-2'}}</p>
-        <button id = "cart" mat-raised-button color="warn" routerLink="payment"><span>Bestelling afronden</span></button>
+        <button (click)="deleteCart()" mat-raised-button color="warn"><span>Bestelling afronden</span></button>
       <br>
      </div>
     </div>

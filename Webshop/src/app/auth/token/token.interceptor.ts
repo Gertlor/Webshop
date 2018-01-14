@@ -37,7 +37,7 @@ export class TokenInterceptor implements HttpInterceptor {
        }
         if (err.status === 401) {
           // redirect to the login route
-          this.router.navigate(['login']);
+          this.router.navigate(['home']);
         }
       }
     });

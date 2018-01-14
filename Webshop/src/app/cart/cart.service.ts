@@ -6,13 +6,14 @@ import {isUndefined} from "util";
 import {CartRowProduct} from "./cart-row-product";
 import {ProductService} from "../product/product.service";
 import {MessageService} from "../shared/message/message.service";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class CartService {
 
   amountInCart:number
 
-  constructor(private productService:ProductService, private messageService:MessageService) {
+  constructor(private productService:ProductService, private messageService:MessageService, private router:Router) {
     this.calculateAmountinCart();
   }
 
@@ -97,13 +98,16 @@ export class CartService {
   deleteCart() {
     localStorage.removeItem('cart');
     this.calculateAmountinCart();
+    this.router.navigate(['home']);
+    this.messageService.notificationSuccess.next( "Je bestelling is opgeslagen!");
+    return;
   }
+
 
   removeOfCart(prodid){
     let productsInCart:CartRow[];
     productsInCart = JSON.parse(localStorage.getItem('cart'));
 
-    //Check if the user has an cart, if not we initialize a new one
     if(productsInCart == null){
       productsInCart = []
     }
@@ -121,6 +125,4 @@ export class CartService {
       }
     }
   }
-
-
 }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Cart} from "../cart";
 import {CartService} from "../cart.service";
-import {CartRowProduct} from "../cart-row-product";
 import {ProductService} from "../../product/product.service";
-import {Product} from "../../product/product";
+
 
 @Component({
   selector: 'app-cart-overview',
@@ -33,6 +32,10 @@ export class CartOverviewComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  deleteCart(){
+    this.cartService.deleteCart();
   }
 
   ngOnInit() {
