@@ -11,3 +11,12 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
+
+Button{
+  background-color: transparent !important;
+  border: 2px solid #007bb6 !important;
+  color: #007bb6 !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
