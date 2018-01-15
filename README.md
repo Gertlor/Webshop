@@ -1,11 +1,14 @@
 #Webshop
+
 In dit project wordt er een webshop gemaakt in Angular 4 en Dropwizard
 
 ##Hsleiden
+
 Dit project is in opdracht van Hsleiden. De webshop is niet echt.
 Website URL: gerlobes.nl
 
 ##Uri's
+
     GET     /api/ 
     GET     /api/account/me 
     POST    /api/account/register 
@@ -16,6 +19,7 @@ Website URL: gerlobes.nl
 
 
 ##Inloggegevens
+
 Email: admin@albertoumbo.nl wachtwoord: adminPSW  (admin)
 
 Email: user@albertoumbo.nl wachtwoord: userPSW
