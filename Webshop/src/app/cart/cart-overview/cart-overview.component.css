@@ -1,0 +1,33 @@
+#product-img{
+  max-width: 100px;
+  max-height: 100px;
+}
+#table{
+  background-color: white;
+}
+#centered{
+  background-color: white;
+}
+#title{
+  font-weight: bold;
+  font-size: 30px;
+  font-family: Calibri;
+}
+#totaal{
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+}
+#emptymessage{
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+.rightalign{
+  text-align: right;
+}
+.centeralign{
+  text-align: center;
+}
+

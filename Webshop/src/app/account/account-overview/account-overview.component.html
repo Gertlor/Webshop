@@ -1,0 +1,18 @@
+<div class="col-md-3"></div>
+<div class="col-md-6">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title id="mainTitle">Mijn Account</mat-card-title>
+      <mat-card-subtitle><h4>{{account.firstname}} {{account.prefix}} {{account.lastname}}</h4></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h5>Adres gegevens:</h5>
+      <p>{{account.street}} {{account.house_nr}}</p>
+      <p>{{account.zipcode}} {{account.town}}</p>
+
+      <h5>Bereikbaarheid</h5>
+      <p><strong>Email:</strong> {{account.email}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="col-md-3"></div>

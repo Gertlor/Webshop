@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "assets/css/bootstrap.min.css";
+@import "assets/css/font-awesome.min.css";
+@import "assets/css/google-font.css";
+
+body {
+  background: url('assets/img/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+Button{
+  background-color: transparent !important;
+  border: 2px solid #007bb6 !important;
+  color: #007bb6 !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
